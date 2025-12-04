@@ -1,0 +1,95 @@
+(include "./widgets.yuck")
+
+;; Widget containers
+
+(defwidget battery_container []
+  (box :class "battery_container"
+       :orientation "vertical"
+       :space-evenly false
+       :halign "center"
+       :spacing 6
+    (battery_icon)
+))
+
+(defwidget clock_container []
+  (box 
+    :class "clock_container"
+    :space-evenly false
+    :halign "center"
+    :orientation "horizontal"
+
+  (clock_icon)
+  (box :style "min-width: 5px;")
+  (clock_time)
+))
+
+(defwidget volume_container []
+  (box 
+    :class "volume_container"
+    :space-evenly false
+    :halign "center"
+    :orientation "horizontal"
+
+  (volume_icon)
+  (box :style {volume == "" ? "min-width: 0px" : "min-width: 5px"})
+  (volume)
+))
+
+(defwidget bluetooth_container []
+  ;; The eventbox makes the entire area clickable at all times.
+  (eventbox    
+    :onclick "hyprctl dispatch exec '[float;size 80% 80%;center] kitty --class bluetui-popup bluetui'"
+    (box :class "bluetooth_container" :orientation "horizontal" :space-evenly false :spacing 6
+      
+      ;; The icon is now always visible.
+      (label :class "bluetooth_icon" :text "󰂯")
+      
+      ;; This revealer now only wraps the device name, showing it upon connection.
+      (revealer :reveal {bluetooth_info.connected_device != ""}
+                :transition "slideright"
+                :duration "350ms"
+        (label :class "bluetooth_device-name"
+               :limit-width 15
+               :truncate "end"
+               :text "${bluetooth_info.connected_device}"))
+    )
+  )
+)
+
+(defwidget wifi_container []
+  (eventbox
+    :onclick "hyprctl dispatch exec '[float;size 80% 80%;center] kitty --class impala-popup impala'"
+    (box 
+      :class "wifi_container"
+      :space-evenly false
+      :halign "center"
+      :orientation "horizontal"
+
+    (wifi_icon)
+    (box :style "min-width: 10px;")
+    (wifi)
+)))
+
+(defwidget media_container []
+  (box 
+    :style "width: 20%;"
+    :class "media_container"
+    :space-evenly false
+    :halign "center"
+    :orientation "horizontal"
+  
+  (media_icon)
+  (box :style "min-width: 10px;")
+  (media)
+))
+
+(defwidget cpu_container []
+  (box 
+    :style "width: 20%;"
+    :class "media_container"
+    :space-evenly false
+    :halign "center"
+    :orientation "horizontal"
+  
+  (cpu) 
+))

@@ -51,36 +51,21 @@ $gray: #a89984;
 }
 
 .battery_icon {
-  margin-top: 3px;
+  margin-top: 0.05rem;
   font-size: 17px;
   color: $red;
 }
 
 /* Workspace Styles */
 .workspace-active {
-  font-size: 20px;
+  font-size: 15px;
   color: $blue;
 }
 
 .workspace-inactive {
-  font-size: 20px;
-}
-
-/* --- Power Menu Styles --- */
-
-.powermenu-background {
-  color: $bg;
-}
-
-.powermenu-button {
-  font-size: 50px;
-  color: $gray;
+  font-size: 15px;
 }
 
 /* --- Battery Styles --- */
-
-.tray-item {
-  margin: 0 10px;
-}
 
 

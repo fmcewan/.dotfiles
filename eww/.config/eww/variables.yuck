@@ -1,0 +1,16 @@
+;; Poll system data
+
+(defvar menu_visible false)
+
+(defpoll time :interval "1s" "date '+%H:%M:%S'")
+(defpoll volume :interval "0.2s" "pamixer --get-volume-human | sed 's/muted//' | sed 's/\\([0-9]\\+\\)%/\\1%/'")
+(defpoll net :interval "5s" "nmcli -t -f active,ssid dev wifi | grep '^yes' | cut -d\":\" -f2")
+(defpoll song :interval "1s" "playerctl metadata --format '{{title}}' || echo ''")
+(defpoll cpu :interval "0.1s" "top -bn1 | grep 'Cpu(s)' | sed 's/.*, *\\([0-9.]*\\)%* id.*/\\1/' | awk '{print 100 - $1}")
+(defpoll active_workspace_id :interval "0.1s" "hyprctl activeworkspace -j | jq .id")
+(defpoll bluetooth_info :interval "2s" "~/.config/eww/scripts/get_bluetooth_status.sh")
+(defpoll battery-capacity :interval "5s" "upower -i $(upower -e | grep 'BAT0') | grep -E 'percentage' | awk '{print $2}' | sed 's/%//'")
+(defpoll battery-status :interval "2s" 'cat /sys/class/power_supply/BAT0/status || echo "Unknown"')
+
+(deflisten workspace "hyprland-workspaces `hyprctl monitors -j | jq -r \".[0].name\"`")
+
