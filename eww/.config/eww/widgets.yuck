@@ -1,8 +1,8 @@
 (include "./variables.yuck")
 
 ;; Widgets
-(defwidget cpu_icon [] (label class "cpu_icon" :text ""))
-(defwidget cpu [] (label class "cpu_text" :text "${cpu}"))
+(defwidget cpu_icon [] (label :class "cpu_icon" :text ""))
+(defwidget cpu [] (label :class "cpu_text" :text "${cpu}"))
 
 (defwidget clock_icon [] (label :class "clock_icon" :text "󱦟"))
 (defwidget clock_time [] (label :class "clock_time" :text "${time}"))
