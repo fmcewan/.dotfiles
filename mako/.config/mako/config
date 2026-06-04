@@ -1,0 +1,24 @@
+# === Carbonfox Mako Theme ===
+
+background-color=#161616
+text-color=#d0d0d0
+border-color=#5fa8ff
+
+border-size=2
+border-radius=10
+
+padding=10
+margin=10
+
+font=JetBrains Mono 10
+
+default-timeout=5000
+
+[urgency=low]
+border-color=#1f1f1f
+
+[urgency=normal]
+border-color=#5fa8ff
+
+[urgency=high]
+border-color=#ff5f5f

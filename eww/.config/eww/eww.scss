@@ -1,5 +1,5 @@
 /* Gruvbox Color Palette */
-$bg: #17181a;
+$bg: #282828;
 $fg: #ebdbb2;
 $red: #fb4934;
 $blue: #458588;
@@ -23,6 +23,7 @@ $gray: #a89984;
   color: $fg;
   margin: 0;
   padding: 5px 14px;
+  border-bottom: 2px solid $blue;
 }
 
 /* Icon Styles */
@@ -51,21 +52,36 @@ $gray: #a89984;
 }
 
 .battery_icon {
-  margin-top: 0.05rem;
+  margin-top: 0.11em;
   font-size: 17px;
   color: $red;
 }
 
 /* Workspace Styles */
 .workspace-active {
-  font-size: 15px;
+  font-size: 20px;
   color: $blue;
 }
 
 .workspace-inactive {
-  font-size: 15px;
+  font-size: 20px;
+}
+
+/* --- Power Menu Styles --- */
+
+.powermenu-background {
+  color: $bg;
+}
+
+.powermenu-button {
+  font-size: 50px;
+  color: $gray;
 }
 
 /* --- Battery Styles --- */
+
+.tray-item {
+  margin: 0 10px;
+}
 
 

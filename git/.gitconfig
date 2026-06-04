@@ -1,0 +1,11 @@
+[user]
+	email = frasermcewan6@gmail.com
+	name = Fraser McEwan
+[credential]
+	helper = store
+[init]
+	defaultBranch = main
+[fetch]
+	prune = true
+[http]
+	version = HTTP/1.1

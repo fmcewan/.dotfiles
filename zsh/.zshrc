@@ -1,7 +1,6 @@
 ### PATH ###
 
 # Set-up globbing
-
 setopt extended_glob null_glob
 
 # Initialise and deduplicate path
@@ -10,6 +9,7 @@ typeset -U path
 # Set PATH
 default_paths=(
   $HOME/.local/bin
+  $HOME/.config/emacs/bin:
   $HOME/bin
   $HOME/.cargo/bin
   $HOME/go/bin
@@ -36,7 +36,6 @@ export PATH="${(j/:/)path}" # PATH is required to be a compa-separated string
 ### SSH ##
 
 ### AUTO-COMPLETE ###
-
 autoload -Uz compinit
 compinit
 
@@ -76,11 +75,16 @@ setopt SHARE_HISTORY
 
 ### ALIASES ### 
 
-alias v="nvim"
+alias n="nvim"
+alias ls="eza"
+alias cd="z"
 
-alias zen="zen-browser"
+### EVALS ### 
 
 eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
+
+export PATH="$HOME/.config/emacs/bin:$PATH"
 
 # SOURCES (that are required near the end)
 source ~/.zsh/fzf-tab/fzf-tab.plugin.zsh
